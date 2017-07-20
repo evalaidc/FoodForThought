@@ -27,19 +27,37 @@ class App extends Component {
 
   render() {
 
+    // function getSelectedYear(){
+    //   var schoolyear = $("#myselect").val()
+    //   console.log("hello" + schoolyear)
+    // }
+
+    function handleChange(e){
+      var options = e.target.options;
+      var value = 0;
+      for (var i = 0, l = options.length; i < l; i++) {
+        if (options[i].selected) {
+        return value =options[i].value;
+    }
+    console.log(value)
+  }
+      console.log("select")
+    }
+
     return (
       <div className="App">
           <h2>Hello World</h2>
-          <p> School Year Range: <select id="myselect">
+          <p> School Year Range: <select id="myselect" onChange={this.handleChange}>
             {this.state.school_years.map(function(range){
               return (
-                <option value={range}> {range} </option>
+                <option key={range.id} value={range}> {range} </option>
               )}
             )}
             </select>
+            <button type='button' > Select </button>
           </p>
-
           <Chart />
+
       </div>
     );
   }
