@@ -4,17 +4,17 @@ import axios from 'axios';
 import Chart from './components/Chart.js';
 
 class App extends Component {
-  // constructor(props){
-  //   super(props);
-  //
-  //   this.state = {
-  //
-  //   }
-  // }
-  //
-  // componentDidMount(){
-  //
-  // }
+  constructor(props){
+    super(props);
+
+    this.state = {
+      school_years: []
+    };
+  }
+
+  componentDidMount(){
+    axios.get(`https://data.maryland.gov/resource/7dst-j5if.json?$select=school_year`)
+  }
 
   render() {
     return (
